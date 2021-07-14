@@ -100,7 +100,7 @@
     {% block header_site_language_switch %}
     {% set current_lang = request.environ.CKAN_LANG %}
     <nav class="section language-switch">
-      <form action="{% url_for controller='util', action='redirect' %}" method="POST">
+      <form action="{% url_for controller='util', action='internal_redirect' %}" method="POST">
         <ul class="nav nav-pills">
         {% for locale in h.get_available_locales() %}
           <li class=""><a href="{% url_for h.current_url(), locale=locale.short_name %}" class="{% if locale.identifier == current_lang %} language-active{% endif %} btn-language" data-href="{{h.full_current_url()}}">
